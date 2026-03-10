@@ -1,40 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Signatures</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        .signature {
-            margin: 20px 0;
-        }
-        .signature p {
-            margin: 0;
-        }
-    </style>
+
+<meta charset="UTF-8">
+<title>Firme Email Facchetti Costruzioni</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f5f5f5;
+padding:40px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+.card{
+background:white;
+padding:25px;
+margin-bottom:40px;
+border-radius:8px;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+h2{
+margin-bottom:20px;
+}
+
+</style>
+
 </head>
+
 <body>
-    <div class="signature">
-        <p>Best regards,</p>
-        <p><strong>Facchetti Costruzioni</strong></p>
-        <p>John Doe</p>
-        <p>Project Manager</p>
-        <p>Email: johndoe@facchetticostruzioni.com</p>
-        <p>Phone: +39 123 456 7890</p>
-        <p><a href="http://www.facchetticostruzioni.com">facchetticostruzioni.com</a></p>
-    </div>
-    <div class="signature">
-        <p>Best regards,</p>
-        <p><strong>Facchetti Costruzioni</strong></p>
-        <p>Jane Smith</p>
-        <p>Architect</p>
-        <p>Email: janesmith@facchetticostruzioni.com</p>
-        <p>Phone: +39 123 456 7891</p>
-        <p><a href="http://www.facchetticostruzioni.com">facchetticostruzioni.com</a></p>
-    </div>
+
+<div class="container">
+
+<h1>Firme Email Facchetti Costruzioni</h1>
+
+<p>
+Trova il tuo nome, seleziona la firma sotto e copiala nella tua email.
+</p>
+
+<div id="firme"></div>
+
+</div>
+
+
+<script>
+
+const logo="https://res.cloudinary.com/dwfimhio3/image/upload/v1773141394/Logo_FC_zzgury.png"
+
+const banner="https://res.cloudinary.com/dwfimhio3/image/upload/v1773141393/Banner_hdd1sr.jpg"
+
+
+const persone=[
+
+["Mattia Facchetti","Site Manager","+39 340 388 4010","mattia.facchetti@facchetticostruzioni.it"],
+["Augusto Ghitti","Project Manager / CTO","+39 329 827 0351","augusto.ghitti@facchetticostruzioni.it"],
+["Davide Scalvini","Project Manager / COS","+39 380 795 4230","davide.scalvini@facchetticostruzioni.it"],
+["Alida Ciocchi","Site Manager","+39 340 666 3489","alida.ciocchi@facchetticostruzioni.it"],
+["Arnaldo Palazzolo","Project Manager","+39 338 953 4173","arnaldo.palazzolo@facchetticostruzioni.it"],
+["Camilla Gadeschi","Purchasing Assistant","+39 333 548 7462","camilla.gadeschi@facchetticostruzioni.it"],
+["David Cristini","Marketing Manager","+39 345 027 2258","david.cristini@facchetticostruzioni.it"],
+["Fabio Schiavi","Site Assistant","+39 348 539 7245","fabio.schiavi@facchetticostruzioni.it"],
+["Gabriele Faleschini","Site Manager","+39 346 774 8253","gabriele.faleschini@facchetticostruzioni.it"],
+["Giuseppe Salerno","Purchasing Manager","+39 389 656 0391","giuseppe.salerno@facchetticostruzioni.it"],
+["Massimo Masneri","Project Eng. P.E.","+39 349 319 1492","massimo.masneri@facchetticostruzioni.it"],
+["Roberto Facchetti","CEO","+39 335 760 2728","roberto.facchetti@facchetticostruzioni.it"],
+["Giovanni Facchetti","COO","+39 335 760 2729","giovanni.facchetti@facchetticostruzioni.it"],
+["Giusi Facchetti","Administrative Manager","+39 030 747 0193","giusi.facchetti@facchetticostruzioni.it"],
+["Matteo Avella","Site Manager","+39 389 009 1309","matteo.avella@facchetticostruzioni.it"],
+["Monica Forlani","General Coordinator","+39 320 961 3630","monica.forlani@facchetticostruzioni.it"],
+["Tobia Piccinini","Site Assistant","+39 366 265 7554","tobia.piccinini@facchetticostruzioni.it"],
+["Veronica Bertarelli","QSHE Manager","+39 338 196 5482","veronica.bertarelli@facchetticostruzioni.it"],
+["Mario Monzitta","Project Manager","+39 327 145 0824","mario.monzitta@facchetticostruzioni.it"],
+["Valeria Salvati","Administrative Specialist","+39 030 747 0193","valeria.salvati@facchetticostruzioni.it"],
+["Sergio Ribola","CFO","+39 030 747 0193","sergio.ribola@facchetticostruzioni.it"],
+["Simone Mutti","Warehouse Manager","+39 335 760 2731","simone.mutti@facchetticostruzioni.it"],
+["Roger Incardona","Project Manager","+39 030 747 0193","roger.incardona@facchetticostruzioni.it"],
+["Simone Beltrami","Site Manager","+39 389 242 1315","simone.beltrami@facchetticostruzioni.it"],
+["Marco Di Biasio","Tender Office","+39 030 747 0193","marco.dibiasio@facchetticostruzioni.it"],
+["Federico Facchetti","Coordination Assistant","+39 333 765 5508","federico.facchetti@facchetticostruzioni.it"],
+["Giovanni Presti","Site Specialist","+39 348 454 7776","giovanni.presti@facchetticostruzioni.it"]
+
+]
+
+const container=document.getElementById("firme")
+
+persone.forEach(p=>{
+
+container.innerHTML+=`
+
+<div class="card">
+
+<h2>${p[0]}</h2>
+
+<table style="font-family:Arial; font-size:13px; max-width:450px;">
+
+<tr>
+
+<td>
+
+<p style="margin:0;font-size:16px;font-weight:bold;color:#666">${p[0]}</p>
+
+<p style="margin:2px 0;color:#777">${p[1]}</p>
+
+<p style="margin-top:8px">
+
+<strong>Tel.</strong>
+<a href="tel:${p[2]}" style="color:#D6453B;text-decoration:none">${p[2]}</a><br>
+
+<strong>Mail:</strong>
+<a href="mailto:${p[3]}" style="color:#D6453B;text-decoration:none">${p[3]}</a>
+
+</p>
+
+</td>
+
+<td style="text-align:right">
+
+<img src="${logo}" width="150">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="2" style="padding:10px 0">
+
+<img src="${banner}" style="width:100%;max-width:450px">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="2">
+
+<hr style="border:none;height:1.5px;background:#D6453B">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<strong>FACCHETTI COSTRUZIONI S.P.A.</strong><br>
+
+Via Parma, 18 | 25037 Pontoglio (BS), Italia<br>
+
+<strong>Tel.</strong>
+<a href="tel:+390307470193" style="color:#D6453B;text-decoration:none">
++39 030 7470193
+</a><br>
+
+<strong>Mail</strong>
+<a href="mailto:info@facchetticostruzioni.it" style="color:#D6453B;text-decoration:none">
+info@facchetticostruzioni.it
+</a>
+
+</td>
+
+<td style="text-align:right">
+
+<a href="https://www.instagram.com/facchetticostruzioni/" style="color:#D6453B;text-decoration:none;display:block">INSTAGRAM</a>
+
+<a href="https://www.linkedin.com/company/73009488" style="color:#D6453B;text-decoration:none;display:block">LINKEDIN</a>
+
+<a href="https://facchetticostruzioni.it" style="color:#D6453B;text-decoration:none;display:block">SITO WEB</a>
+
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+`
+
+})
+
+</script>
+
 </body>
 </html>
